@@ -36,4 +36,13 @@ class Usage(Base):
     part: Mapped["Part"] = relationship("Part", back_populates="usages")
     assembly: Mapped["Assembly"] = relationship("Assembly",back_populates="usages")
 
+    def __init__(self, usage_quantity: int, parts_part_number: str, assemblies_assembly_part_number: str):
+        self.usage_quantity = usage_quantity
+        self.parts_part_number = parts_part_number
+        self.assemblies_assembly_part_number = assemblies_assembly_part_number
+    def __repr__(self):
+        return f"<Usage(usage_quantity='{self.usage_quantity}, parts_part_number='{self.parts_part_number}', assemblies_assembly_part_number='{self.assemblies_assembly_part_number}')>"
+    def __str__(self):
+        return f"Usage_quantity= {self.usage_quantity}, Parts_part_number= {self.parts_part_number}, Assemblies_assembly_part_number= {self.assemblies_assembly_part_number} "
+
     

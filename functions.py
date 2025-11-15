@@ -61,7 +61,7 @@ def list_usage(session: Session):
     usages = list(session.query(Usage).order_by(Usage.usage_quantity))
     print("\n--- List of Usages ---")
     if not usages:
-        print("No assembly found.")
+        print("No Usages found.")
     else:
         for usage in usages:
             print(usage)
