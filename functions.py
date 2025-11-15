@@ -70,7 +70,7 @@ def list_piece_parts(session: Session):
     pieceParts = list(session.query(PiecePart).order_by(PiecePart.part_number))
     print("\n--- List of Piece Parts ---")
     if not pieceParts:
-        print("No assembly found.")
+        print("No Piece Part found.")
     else:
         for piecePart in pieceParts:
             print(piecePart)
