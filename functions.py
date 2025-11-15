@@ -18,7 +18,8 @@ def add_part(sess: Session):
         part_number = input("Enter part_number: ")
         part_name = input("Enter part_name: ")
         new_part = Part(part_number, part_name)
-        violated_constraints = check_unique(Session, new_part)
+        # pass the active session instance `sess`, not the Session class
+        violated_constraints = check_unique(sess, new_part)
         if len(violated_constraints) > 0:
             print('The following uniqueness constraints were violated:')
             print(violated_constraints)
