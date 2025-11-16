@@ -6,8 +6,8 @@ from option import Option
 menu_main = Menu('main', 'Please select one of the following options:', [
     Option("Add", "add_objects(sess)"),
     Option("List", "list_objects(sess)"),
-    Option("Delete", "delete_menu(sess)"),
-    Option("Update", "update(sess)"),
+    Option("Delete", "delete_objects(sess)"),
+    Option("Update", "update_objects(sess)"),
     Option("Exit this application", "pass")
 ])
 
@@ -26,6 +26,12 @@ delete_menu = Menu('delete', 'Please indicate what you want to delete from:', [
     Option("Usage", "functions.delete_usage(sess)"),
     Option("Piece Parts", "functions.delete_piece_parts(sess)"),
     Option("Vendors", "functions.delete_vendors(sess)"),
+    Option("Exit", "pass")
+])
+
+update_menu = Menu('update', 'Please indicate what you want to update:', [
+    Option("Part", "functions.update_part(sess)"),
+    Option("Vendor", "functions.update_vendor(sess)"),
     Option("Exit", "pass")
 ])
 
