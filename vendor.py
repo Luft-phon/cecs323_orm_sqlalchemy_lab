@@ -36,8 +36,7 @@ class Vendor(Base):
         lazy="selectin",                # tối ưu n+1 khi load danh sách
     )
 
-    def __init__(self, vendor_id: int, supplier_name: str):
-        self.vendor_id = vendor_id
+    def __init__(self, supplier_name: str):
         self.supplier_name = supplier_name
     
     def __repr__(self):

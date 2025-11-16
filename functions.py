@@ -120,12 +120,10 @@ def add_usage(sess: Session):
 
 def add_vendors(sess: Session):
     supplier_name: str = ''
-    vendor_id: str = ''
     violation = True
     while violation:
-        vendor_id = input("Enter vendor_id: ")
         supplier_name = input("Enter supplier_name: ")
-        new_vendors = Vendor(vendor_id, supplier_name)
+        new_vendors = Vendor(supplier_name)
         violated_constraints = check_unique(sess, new_vendors)
 
         if len(violated_constraints) > 0:
