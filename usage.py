@@ -23,6 +23,7 @@ class Usage(Base):
         primary_key=True,
     )
     assemblies_assembly_part_number: Mapped[str] = mapped_column(
+        "assemblies_assembly_part_number",
         String(10),
         ForeignKey("assemblies.assembly_part_number", name="usages_assemblies"),
         primary_key=True,

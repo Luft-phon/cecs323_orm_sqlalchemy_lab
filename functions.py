@@ -29,11 +29,71 @@ def add_part(sess: Session):
     sess.add(new_part)
 
 # --- Delete Functions ---
-def delete(sess: Session):
-    delete_action: str = ''
-    while delete_action != delete_menu.last_action():
-        delete_action = delete_menu.menu_prompt()
-        exec(delete_action)
+def delete_part(sess: Session):
+    part_number: str = input("Enter part_number of the part to delete: ")
+    part = sess.query(Part).filter(Part.part_number == part_number).first()
+    if part:
+        sess.delete(part)
+        print(f"Part {part_number} deleted.")
+    else:
+        print(f"Part {part_number} not found.")
+    
+def delete_assembly(sess: Session):
+    assembly_part_number: str = input("Enter assembly_part_number of the assembly to delete: ")
+    assembly = sess.query(Assembly).filter(Assembly.assembly_part_number == assembly_part_number).first()
+    if assembly:
+        sess.delete(assembly)
+        print(f"Assembly {assembly_part_number} deleted.")
+    else:
+        print(f"Assembly {assembly_part_number} not found.")
+        
+def delete_usage(sess: Session):
+    usage_id: int = int(input("Enter usage_id of the usage to delete: "))
+    usage = sess.query(Usage).filter(Usage.usage_id == usage_id).first()
+    if usage:
+        sess.delete(usage)
+        print(f"Usage {usage_id} deleted.")
+    else:
+        print(f"Usage {usage_id} not found.")
+
+def delete_piece_parts(sess: Session):
+    part_number: str = input("Enter part_number of the piece part to delete: ")
+    piece_part = sess.query(PiecePart).filter(PiecePart.part_number == part_number).first()
+    if piece_part:
+        sess.delete(piece_part)
+        print(f"Piece Part {part_number} deleted.")
+    else:
+        print(f"Piece Part {part_number} not found.")
+def delete_vendors(sess: Session):
+    vendor_id: int = int(input("Enter vendor_id of the vendor to delete: "))
+    vendor = sess.query(Vendor).filter(Vendor.vendor_id == vendor_id).first()
+    if vendor:
+        sess.delete(vendor)
+        print(f"Vendor {vendor_id} deleted.")
+    else:
+        print(f"Vendor {vendor_id} not found.")
+# --- Update Functions ---
+
+def update_part(sess: Session):
+    part_number: str = input("Enter part_number of the part to update: ")
+    part = sess.query(Part).filter(Part.part_number == part_number).first()
+    if part:
+        print(f"Current part_name: {part.part_name}")
+        new_name: str = input("Enter new part_name: ")
+        part.part_name = new_name
+        print(f"Part {part_number} updated.")
+    else:
+        print(f"Part {part_number} not found.")
+def update_vendor(sess: Session):
+    vendor_id: int = int(input("Enter vendor_id of the vendor to update: "))
+    vendor = sess.query(Vendor).filter(Vendor.vendor_id == vendor_id).first()
+    if vendor:
+        print(f"Current vendor_name: {vendor.supplier_name}")
+        new_name: str = input("Enter new vendor_name: ")
+        vendor.supplier_name = new_name
+        print(f"Vendor {vendor_id} updated.")
+    else:
+        print(f"Vendor {vendor_id} not found.")
 
 def exit_menu():
     print("Exiting add menu...")
