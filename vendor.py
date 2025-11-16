@@ -36,9 +36,11 @@ class Vendor(Base):
         lazy="selectin",                # tối ưu n+1 khi load danh sách
     )
 
-    def __init__(self, supplier_name: str):
+    def __init__(self, vendor_id: int, supplier_name: str):
+        self.vendor_id = vendor_id
         self.supplier_name = supplier_name
+    
     def __repr__(self):
-        return f"<Vendor(vendor_id='{self.vendor_id}, supplier_name='{self.supplier_name}')>"
+        return f"<Vendor(vendor_id='{self.vendor_id}', supplier_name='{self.supplier_name}')>"
     def __str__(self):
         return f"Vendor_id= {self.vendor_id}, Supplier_name= {self.supplier_name} "

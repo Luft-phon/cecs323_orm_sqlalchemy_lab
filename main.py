@@ -34,7 +34,7 @@ def main():
     while main_action != menu_main.last_action():
         main_action = menu_main.menu_prompt()
         exec(main_action)
-    sess.commit()
+    # sess.commit()
 if __name__ == "__main__":
     main()
 
