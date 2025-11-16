@@ -38,7 +38,8 @@ class Vendor(Base):
 
     def __init__(self, supplier_name: str):
         self.supplier_name = supplier_name
+    
     def __repr__(self):
-        return f"<Vendor(vendor_id='{self.vendor_id}, supplier_name='{self.supplier_name}')>"
+        return f"<Vendor(vendor_id='{self.vendor_id}', supplier_name='{self.supplier_name}')>"
     def __str__(self):
         return f"Vendor_id= {self.vendor_id}, Supplier_name= {self.supplier_name} "
