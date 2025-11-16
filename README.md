@@ -29,7 +29,7 @@ in which case that part is composed of yet other parts, or the part is a "piece 
 ## 🛠 Setup
 1. Clone this repository
 ```
-https://github.com/Luft-phon/react-portfolio.git
+https://github.com/Luft-phon/cecs323_orm_sqlalchemy_lab.git
 ```
 
 2. Open the project folder
