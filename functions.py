@@ -18,7 +18,6 @@ def add_part(sess: Session):
         part_number = input("Enter part_number: ")
         part_name = input("Enter part_name: ")
         new_part = Part(part_number, part_name)
-<<<<<<< HEAD
         violated_constraints = check_unique(sess, new_part)
         if len(violated_constraints) > 0:
             print('Error: The following uniqueness constraints were violated:')
@@ -69,10 +68,6 @@ def add_piece_parts(sess: Session):
         assemblies = list(sess.query(Assembly))
         vendors = list(sess.query(Vendor))
 
-=======
-        # pass the active session instance `sess`, not the Session class
-        violated_constraints = check_unique(sess, new_part)
->>>>>>> a64a1b6b7ae13907f1f48f62264492cde0900a48
         if len(violated_constraints) > 0:
             print('The following uniqueness constraints were violated:')
             print(violated_constraints)
