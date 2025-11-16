@@ -162,6 +162,7 @@ def delete_part(sess: Session):
     part = sess.query(Part).filter(Part.part_number == part_number).first()
     if part:
         sess.delete(part)
+        sess.commit()
         print(f"Part {part_number} deleted.")
     else:
         print(f"Part {part_number} not found.")
@@ -171,6 +172,7 @@ def delete_assembly(sess: Session):
     assembly = sess.query(Assembly).filter(Assembly.assembly_part_number == assembly_part_number).first()
     if assembly:
         sess.delete(assembly)
+        sess.commit()
         print(f"Assembly {assembly_part_number} deleted.")
     else:
         print(f"Assembly {assembly_part_number} not found.")
@@ -180,6 +182,7 @@ def delete_usage(sess: Session):
     usage = sess.query(Usage).filter(Usage.usage_id == usage_id).first()
     if usage:
         sess.delete(usage)
+        sess.commit()
         print(f"Usage {usage_id} deleted.")
     else:
         print(f"Usage {usage_id} not found.")
@@ -189,6 +192,7 @@ def delete_piece_parts(sess: Session):
     piece_part = sess.query(PiecePart).filter(PiecePart.part_number == part_number).first()
     if piece_part:
         sess.delete(piece_part)
+        sess.commit()
         print(f"Piece Part {part_number} deleted.")
     else:
         print(f"Piece Part {part_number} not found.")
@@ -197,6 +201,7 @@ def delete_vendors(sess: Session):
     vendor = sess.query(Vendor).filter(Vendor.vendor_id == vendor_id).first()
     if vendor:
         sess.delete(vendor)
+        sess.commit()
         print(f"Vendor {vendor_id} deleted.")
     else:
         print(f"Vendor {vendor_id} not found.")
@@ -209,6 +214,7 @@ def update_part(sess: Session):
         print(f"Current part_name: {part.part_name}")
         new_name: str = input("Enter new part_name: ")
         part.part_name = new_name
+        sess.commit()
         print(f"Part {part_number} updated.")
     else:
         print(f"Part {part_number} not found.")
@@ -219,6 +225,7 @@ def update_vendor(sess: Session):
         print(f"Current vendor_name: {vendor.supplier_name}")
         new_name: str = input("Enter new vendor_name: ")
         vendor.supplier_name = new_name
+        sess.commit()
         print(f"Vendor {vendor_id} updated.")
     else:
         print(f"Vendor {vendor_id} not found.")
