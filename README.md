@@ -18,12 +18,12 @@ A part Bill of Material (BOM) is a network of parts within a product.  Each part
 in which case that part is composed of yet other parts, or the part is a "piece part" meaning that, for the purposes of the manufacturer, that part is a single unit with no constituent parts that we are interested in.
 
 ## 📌 An abbreviated BOM for an idealized motorcycle
- <img alt="Fav Icon Png" src="https://github.com/Luft-phon/luftphon-portfolio/blob/main/public/portfolio.gif"/>
+ <img alt="Fav Icon Png" src="https://github.com/Luft-phon/cecs323_orm_sqlalchemy_lab/blob/list/photos/BOM.png"/>
 
  <details>
    <summary align="center">VIEW MORE PHOTOS HERE</summary>
-    <img alt="Fav Icon Png" src="https://github.com/Luft-phon/luftphon-portfolio/blob/main/public/about.jpg" />
-    <img alt="Fav Icon Png" src="https://github.com/Luft-phon/luftphon-portfolio/blob/main/public/experience.jpg"/>
+    <img alt="Fav Icon Png" src="https://github.com/Luft-phon/cecs323_orm_sqlalchemy_lab/blob/list/photos/ERD.png" />
+    <img alt="Fav Icon Png" src="https://github.com/Luft-phon/cecs323_orm_sqlalchemy_lab/blob/list/photos/Enterprise%20description.jpg"/>
  </details>
  
 ## 🛠 Setup
