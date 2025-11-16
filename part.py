@@ -30,13 +30,13 @@ class Part(Base):
         "Assembly",
         back_populates="part",
         uselist=False,
-        cascade="save-update",
+        cascade="all, delete-orphan",
     )
     piece_part= relationship(
         "PiecePart",
         back_populates="part",
         uselist=False,
-        cascade="save-update",
+        cascade="all, delete-orphan",
     )
     
     usages: Mapped[List["Usage"]] = relationship(
