@@ -7,7 +7,7 @@ from assembly import Assembly
 from usage import Usage
 from piecePart import PiecePart
 from vendor import Vendor
-
+from sqlalchemy import func
 # --- Add Functions ---
        
 def add_part(sess: Session):
@@ -26,7 +26,11 @@ def add_part(sess: Session):
             print(f"")
         else:
             sess.add(new_part)
-            # sess.commit()
+            # try:
+            #     sess.commit()
+            # except Exception as e:
+            #     sess.rollback()
+            #     print(f"Error committing to database: {e}")
         violation = False  
     
       
@@ -51,7 +55,11 @@ def add_assembly(sess: Session):
             print(f"")
         else: 
             sess.add(new_assembly)
-            # sess.commit()
+            # try:
+            #     sess.commit()
+            # except Exception as e:
+            #     sess.rollback()
+            #     print(f"Error committing to database: {e}")
         violation = False   
             
 def add_piece_parts(sess: Session):
@@ -84,7 +92,11 @@ def add_piece_parts(sess: Session):
             print(f"")
         else: 
             sess.add(new_piece_parts)
-            # sess.commit()
+            # try:
+            #     sess.commit()
+            # except Exception as e:
+            #     sess.rollback()
+            #     print(f"Error committing to database: {e}")
         violation = False
 
 def add_usage(sess: Session):
@@ -115,7 +127,11 @@ def add_usage(sess: Session):
             print(f"")
         else: 
             sess.add(new_usage)
-            # sess.commit()
+            # try:
+            #     sess.commit()
+            # except Exception as e:
+            #     sess.rollback()
+            #     print(f"Error committing to database: {e}")
         violation = False   
 
 def add_vendors(sess: Session):
@@ -125,15 +141,19 @@ def add_vendors(sess: Session):
         supplier_name = input("Enter supplier_name: ")
         new_vendors = Vendor(supplier_name)
         violated_constraints = check_unique(sess, new_vendors)
+        vendor = sess.query(Vendor).filter(func.lower(Vendor.supplier_name) == supplier_name.lower()).first()
 
-        if len(violated_constraints) > 0:
-            print('The following uniqueness constraints were violated:')
-            print(violated_constraints)
+        if len(violated_constraints) > 0 or vendor is not None:
+            print(f"The following uniqueness constraints were violated: '{new_vendors}'")
             print('please try again.')
             print(f"")
         else: 
             sess.add(new_vendors)
-            # sess.commit()
+            # try:
+            #     sess.commit()
+            # except Exception as e:
+            #     sess.rollback()
+            #     print(f"Error committing to database: {e}")
         violation = False  
 
 # --- Delete Functions ---
@@ -230,7 +250,7 @@ def list_assembly(session: Session):
 
 def list_usage(session: Session):
     usages = list(session.query(Usage).order_by(Usage.usage_quantity))
-    print("\n--- List of Usages ---")
+    print("\n--- LIST OF USAGES ---")
     if not usages:
         print("No Usages found.")
         print(f"")
@@ -240,7 +260,7 @@ def list_usage(session: Session):
 
 def list_piece_parts(session: Session):
     pieceParts = list(session.query(PiecePart).order_by(PiecePart.part_number))
-    print("\n--- List of Piece Parts ---")
+    print("\n--- LIST OF PIECE PARTS ---")
     if not pieceParts:
         print("No Piece Part found.")
         print(f"")
@@ -250,7 +270,7 @@ def list_piece_parts(session: Session):
 
 def list_vendors(session: Session):
     vendors = list(session.query(Vendor).order_by(Vendor.vendor_id))
-    print("\n--- List of Piece Parts ---")
+    print("\n--- LIST OF VENDORS ---")
     if not Vendor:
         print("No Vendor found.")
     else:
