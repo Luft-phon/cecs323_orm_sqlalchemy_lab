@@ -26,11 +26,11 @@ def add_part(sess: Session):
             print(f"")
         else:
             sess.add(new_part)
-            # try:
-            #     sess.commit()
-            # except Exception as e:
-            #     sess.rollback()
-            #     print(f"Error committing to database: {e}")
+            try:
+                sess.commit()
+            except Exception as e:
+                sess.rollback()
+                print(f"Error committing to database: {e}")
         violation = False  
     
       
@@ -55,11 +55,11 @@ def add_assembly(sess: Session):
             print(f"")
         else: 
             sess.add(new_assembly)
-            # try:
-            #     sess.commit()
-            # except Exception as e:
-            #     sess.rollback()
-            #     print(f"Error committing to database: {e}")
+            try:
+                sess.commit()
+            except Exception as e:
+                sess.rollback()
+                print(f"Error committing to database: {e}")
         violation = False   
             
 def add_piece_parts(sess: Session):
@@ -92,11 +92,11 @@ def add_piece_parts(sess: Session):
             print(f"")
         else: 
             sess.add(new_piece_parts)
-            # try:
-            #     sess.commit()
-            # except Exception as e:
-            #     sess.rollback()
-            #     print(f"Error committing to database: {e}")
+            try:
+                sess.commit()
+            except Exception as e:
+                sess.rollback()
+                print(f"Error committing to database: {e}")
         violation = False
 
 def add_usage(sess: Session):
@@ -127,11 +127,11 @@ def add_usage(sess: Session):
             print(f"")
         else: 
             sess.add(new_usage)
-            # try:
-            #     sess.commit()
-            # except Exception as e:
-            #     sess.rollback()
-            #     print(f"Error committing to database: {e}")
+            try:
+                sess.commit()
+            except Exception as e:
+                sess.rollback()
+                print(f"Error committing to database: {e}")
         violation = False   
 
 def add_vendors(sess: Session):
@@ -149,11 +149,11 @@ def add_vendors(sess: Session):
             print(f"")
         else: 
             sess.add(new_vendors)
-            # try:
-            #     sess.commit()
-            # except Exception as e:
-            #     sess.rollback()
-            #     print(f"Error committing to database: {e}")
+            try:
+                sess.commit()
+            except Exception as e:
+                sess.rollback()
+                print(f"Error committing to database: {e}")
         violation = False  
 
 # --- Delete Functions ---
