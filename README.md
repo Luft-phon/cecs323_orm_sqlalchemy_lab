@@ -49,8 +49,14 @@ host = localhost
 port = ...
 database = your-database-management-system
 ```
-4. The program will ask to enter the database schema
-   - This is usually "Public"
+
+4. Run the program
+```
+python main.py
+```
+
+5. The program will ask to enter the database schema
+   - Enter "Public"
 
 ## 📁 Project Structure
 
